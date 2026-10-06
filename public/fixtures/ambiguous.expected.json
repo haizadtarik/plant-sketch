@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Transfer with ambiguous crossing",
+  "source": {
+    "name": "ambiguous.svg",
+    "page": 1,
+    "mode": "sample"
+  },
+  "items": [
+    {
+      "id": "t1",
+      "tag": "TK-101",
+      "kind": "tank",
+      "bbox": {
+        "x": 0.12,
+        "y": 0.3,
+        "width": 0.12,
+        "height": 0.23
+      },
+      "page": 1,
+      "unit": null,
+      "range": null,
+      "evidence": "Bundled fixture: TK-101 and visible symbol",
+      "provenance": "extracted",
+      "review": "confirmed",
+      "description": "Source tank"
+    },
+    {
+      "id": "p1",
+      "tag": "P-101",
+      "kind": "pump",
+      "bbox": {
+        "x": 0.38,
+        "y": 0.57,
+        "width": 0.08,
+        "height": 0.1
+      },
+      "page": 1,
+      "unit": null,
+      "range": null,
+      "evidence": "Bundled fixture: P-101 and visible symbol",
+      "provenance": "extracted",
+      "review": "confirmed",
+      "description": "pump"
+    },
+    {
+      "id": "v1",
+      "tag": "CV-101",
+      "kind": "control-valve",
+      "bbox": {
+        "x": 0.6,
+        "y": 0.57,
+        "width": 0.08,
+        "height": 0.1
+      },
+      "page": 1,
+      "unit": null,
+      "range": null,
+      "evidence": "Bundled fixture: CV-101 and visible symbol",
+      "provenance": "extracted",
+      "review": "confirmed",
+      "description": "control-valve"
+    },
+    {
+      "id": "t2",
+      "tag": "TK-102",
+      "kind": "tank",
+      "bbox": {
+        "x": 0.8,
+        "y": 0.3,
+        "width": 0.12,
+        "height": 0.23
+      },
+      "page": 1,
+      "unit": null,
+      "range": null,
+      "evidence": "Bundled fixture: TK-102 and visible symbol",
+      "provenance": "extracted",
+      "review": "confirmed",
+      "description": "Receiving tank"
+    },
+    {
+      "id": "l1",
+      "tag": "LT-101",
+      "kind": "level",
+      "bbox": {
+        "x": 0.12,
+        "y": 0.12,
+        "width": 0.08,
+        "height": 0.1
+      },
+      "page": 1,
+      "unit": null,
+      "range": null,
+      "evidence": "Bundled fixture: LT-101 and visible symbol",
+      "provenance": "extracted",
+      "review": "confirmed",
+      "description": "level"
+    },
+    {
+      "id": "l2",
+      "tag": "LT-102",
+      "kind": "level",
+      "bbox": {
+        "x": 0.8,
+        "y": 0.12,
+        "width": 0.08,
+        "height": 0.1
+      },
+      "page": 1,
+      "unit": null,
+      "range": null,
+      "evidence": "Bundled fixture: LT-102 and visible symbol",
+      "provenance": "extracted",
+      "review": "confirmed",
+      "description": "level"
+    },
+    {
+      "id": "f1",
+      "tag": "FT-101",
+      "kind": "flow",
+      "bbox": {
+        "x": 0.6,
+        "y": 0.32,
+        "width": 0.08,
+        "height": 0.1
+      },
+      "page": 1,
+      "unit": null,
+      "range": null,
+      "evidence": "Bundled fixture: FT-101 and visible symbol",
+      "provenance": "extracted",
+      "review": "confirmed",
+      "description": "flow"
+    }
+  ],
+  "connections": [
+    {
+      "id": "c1",
+      "from": "t1",
+      "to": "p1",
+      "type": "process",
+      "direction": "forward",
+      "evidence": "Visible continuous pipe or dashed measurement relationship in sample",
+      "review": "confirmed",
+      "provenance": "extracted"
+    },
+    {
+      "id": "c2",
+      "from": "p1",
+      "to": "v1",
+      "type": "process",
+      "direction": "forward",
+      "evidence": "Visible continuous pipe or dashed measurement relationship in sample",
+      "review": "confirmed",
+      "provenance": "extracted"
+    },
+    {
+      "id": "c3",
+      "from": "v1",
+      "to": "t2",
+      "type": "process",
+      "direction": "forward",
+      "evidence": "Visible continuous pipe or dashed measurement relationship in sample",
+      "review": "confirmed",
+      "provenance": "extracted"
+    },
+    {
+      "id": "c4",
+      "from": "l1",
+      "to": "t1",
+      "type": "measurement",
+      "direction": "unknown",
+      "evidence": "Visible continuous pipe or dashed measurement relationship in sample",
+      "review": "confirmed",
+      "provenance": "extracted"
+    },
+    {
+      "id": "c5",
+      "from": "l2",
+      "to": "t2",
+      "type": "measurement",
+      "direction": "unknown",
+      "evidence": "Visible continuous pipe or dashed measurement relationship in sample",
+      "review": "confirmed",
+      "provenance": "extracted"
+    },
+    {
+      "id": "c6",
+      "from": "f1",
+      "to": "v1",
+      "type": "measurement",
+      "direction": "unknown",
+      "evidence": "Visible continuous pipe or dashed measurement relationship in sample",
+      "review": "confirmed",
+      "provenance": "extracted"
+    }
+  ],
+  "issues": [
+    {
+      "id": "crossing",
+      "message": "Crossing at pump outlet has no junction dot. Confirm the branch or remove it; do not assume connectivity.",
+      "severity": "structural",
+      "status": "unresolved",
+      "itemId": "p1"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "demo",
+      "message": "Demo only: 1000 L per tank, maximum 20 L/s, linear valve response, no PID or alarm thresholds inferred.",
+      "status": "accepted",
+      "provenance": "simulation-default"
+    }
+  ]
+}
