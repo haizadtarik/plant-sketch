@@ -29,6 +29,7 @@ import { initialState, step, SimState, Command } from "@/lib/simulation.mjs";
 import { bundle, tagCsv } from "@/lib/export";
 import { DrawingSchema, WorkspaceSchema } from "@/lib/workspace";
 import { ProcessPreview } from "./ProcessPreview";
+import { FuxaAutomation } from "./FuxaAutomation";
 const stages = ["Upload", "HMI", "Simulate", "Export"];
 const saveFile = (name: string, body: BlobPart, type = "application/json") => {
   const url = URL.createObjectURL(new Blob([body], { type }));
@@ -298,7 +299,10 @@ export function Studio() {
             <button
               className="text-button"
               onClick={() =>
-                saveFile("plantsketch-workspace.json", stringify({ model, drawing }))
+                saveFile(
+                  "plantsketch-workspace.json",
+                  stringify({ model, drawing }),
+                )
               }
             >
               <Download size={16} />
@@ -1008,6 +1012,11 @@ export function Studio() {
                 Vercel.
               </p>
             </aside>
+          </div>
+        )}
+        {model && generated?.report.simulationEnabled && (
+          <div hidden={stage !== 3}>
+            <FuxaAutomation key={JSON.stringify(model)} plant={model} />
           </div>
         )}
       </main>

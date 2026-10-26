@@ -12,6 +12,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "fixtures": "node --import tsx scripts/fixtures.ts",
+    "fuxa:agent": "node --env-file-if-exists=.env --env-file-if-exists=.env.local --import tsx scripts/fuxa-agent.ts",
+    "verify:fuxa-agent": "node --env-file-if-exists=.env --env-file-if-exists=.env.local --import tsx scripts/verify-fuxa-agent.ts",
     "predev": "node scripts/sync-assets.mjs",
     "prebuild": "node scripts/sync-assets.mjs",
     "format": "prettier --write app components lib tests scripts *.ts *.mjs *.json"
@@ -20,7 +22,8 @@
     "jszip": "^3.10.1",
     "lucide-react": "^0.468.0",
     "next": "^16.0.0",
-    "openai": "^6.0.0",
+    "openai": "^6.49.0",
+    "playwright": "1.63.0",
     "pdfjs-dist": "^6.4.299",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

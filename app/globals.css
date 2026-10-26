@@ -1148,3 +1148,65 @@ details .text-button {
     transition: none !important;
   }
 }
+.fuxa-automation {
+  margin-top: 24px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+.fuxa-automation p {
+  margin: 12px 0;
+}
+.agent-token {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0 16px;
+  max-width: 520px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.agent-token input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #cbd5df;
+  border-radius: 8px;
+  background: white;
+  color: #26323b;
+}
+.agent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.agent-setup {
+  margin-top: 18px;
+  max-width: 800px;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.agent-setup summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.agent-progress {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #cbd5df;
+  border-radius: 10px;
+}
+.agent-progress ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+.agent-screen {
+  min-width: 0;
+}
+.agent-screen img {
+  display: block;
+  width: 100%;
+  border: 1px solid #cbd5df;
+  border-radius: 10px;
+}
